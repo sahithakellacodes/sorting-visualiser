@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Buttons and inputs -->
+    <header>
+        <div id="page-heading">Sorting Visualiser</div>
+        <div class="array-inputs">
+            <label id="array-size-label">Size of array:
+                <input id="array-size" type="range" min=20 max=150 step=1 value=80>
+            </label>
+            <label id="speed-label">Algorithm speed:
+                <input id="speed" type="range" min=1 max=5 step=1 value=4>
+            </label>
+            <button id="generate-array">Generate New Array</button>
+        </div>
+        <div class="algorithm-picker">
+            <button id="algo-picker-btn">Bubble Sort</button>
+            <button id="algo-picker-btn">Insertion Sort</button>
+            <button id="algo-picker-btn">Selection Sort</button>
+            <button id="algo-picker-btn">Heap Sort</button>
+            <button id="algo-picker-btn">Quick Sort</button>
+            <button id="algo-picker-btn">Merge Sort</button>
+        </div>
+    </header>
+
+    <!-- Sorting Visualiser -->
+    <section>
+        <div id="pseudocode-container"></div>
+        <div id="array-container"></div>
+        <div id="algorithm-meta-container"></div>
+    </section>
+
+    <!-- Contact details -->
+    <footer></footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="/scripts/animations/animation.js"></script>
+    <script src="/scripts/sorting_algorithms/bubbleSort.js"></script>
+    <script src="/scripts/sorting_algorithms/heapSort.js"></script>
+    <script src="/scripts/sorting_algorithms/insertionSort.js"></script>
+    <script src="/scripts/sorting_algorithms/mergeSort.js"></script>
+    <script src="/scripts/sorting_algorithms/quickSort.js"></script>
+    <script src="/scripts/sorting_algorithms/selectionSort.js"></script>
+</body>
+
+</html>
