@@ -24,7 +24,7 @@ function generate_array() {
         listOfBarLengths.push(Math.floor(Math.random() * 100) + 1);
         margin_size = 0.1;
         let bar = document.createElement("div");
-        bar.style = `margin:0% ${margin_size}%; background-color:blue; width:${100 / input_arrayOfSizes.value}% ; height:${listOfBarLengths[i]}%`;
+        bar.style = `margin:0% ${margin_size}%; background-color:blue; width:${100 / input_arrayOfSizes.value}% ; height:${listOfBarLengths[i]}%; border-radius: 2px;`;
         array_container.appendChild(bar);
         listOfBarDivs.push(bar);
     }

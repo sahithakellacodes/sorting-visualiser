@@ -7,51 +7,54 @@ function merge_sort() {
     const n = input_arrayOfSizes.value;
     let arr = listOfBarLengths;
     let divs = listOfBarDivs;
+    mergeSort(arr, 0, n - 1, divs);
+    enable_buttons();
 }
 
+function mergeSort(arr, low, high, divs) {
+    if (low >= high) return;
+    let mid = Math.floor((low + high) / 2);
+    mergeSort(arr, low, mid, divs);
+    mergeSort(arr, mid + 1, high, divs);
+    merge(arr, low, mid, high, divs);
+}
 
+function merge(arr, low, mid, high, divs) {
+    let temp = [];
+    let left = low;
+    let right = mid + 1;
 
-// private static void merge(int[] arr, int low, int mid, int high) {
-//     ArrayList<Integer> temp = new ArrayList<>(); // temporary array
-//     int left = low;      // starting index of left half of arr
-//     int right = mid + 1;   // starting index of right half of arr
+    while (left <= mid && right <= high) {
+        updateDiv(divs[left], arr[left], "yellow");
+        updateDiv(divs[right], arr[right], "yellow");
+        
+        if (arr[left] <= arr[right]) {
+            temp.push(arr[left]);
+            left++;
+        } else {
+            temp.push(arr[right]);
+            right++;
+        }
+    }
 
-//     //storing elements in the temporary array in a sorted manner//
+    while (left <= mid) {
+        updateDiv(divs[left], arr[left], "yellow");
+        temp.push(arr[left]);
+        left++;
+    }
 
-//     while (left <= mid && right <= high) {
-//         if (arr[left] <= arr[right]) {
-//             temp.add(arr[left]);
-//             left++;
-//         } else {
-//             temp.add(arr[right]);
-//             right++;
-//         }
-//     }
+    while (right <= high) {
+        updateDiv(divs[right], arr[right], "yellow");
+        temp.push(arr[right]);
+        right++;
+    }
 
-//     // if elements on the left half are still left //
+    for (let i = low; i <= high; i++) {
+        arr[i] = temp[i - low];
+        updateDiv(divs[i], arr[i], "red");
+    }
 
-//     while (left <= mid) {
-//         temp.add(arr[left]);
-//         left++;
-//     }
-
-//     //  if elements on the right half are still left //
-//     while (right <= high) {
-//         temp.add(arr[right]);
-//         right++;
-//     }
-
-//     // transfering all elements from temporary to arr //
-//     for (int i = low; i <= high; i++) {
-//         arr[i] = temp.get(i - low);
-//     }
-// }
-
-// public static void mergeSort(int[] arr, int low, int high) {
-//     if (low >= high) return;
-//     int mid = (low + high) / 2 ;
-//     mergeSort(arr, low, mid);  // left half
-//     mergeSort(arr, mid + 1, high); // right half
-//     merge(arr, low, mid, high);  // merging sorted halves
-// }
-// }
+    for (let i = low; i <= high; i++) {
+        updateDiv(divs[i], arr[i], "green");
+    }
+}

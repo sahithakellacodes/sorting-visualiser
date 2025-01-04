@@ -14,10 +14,10 @@
         <div id="page-heading">Sorting Visualiser</div>
         <div class="array-inputs">
             <label id="array-size-label">Size of array:
-                <input id="array-size" type="range" min=20 max=150 step=1 value=80>
+                <input id="array-size" type="range" min=20 max=150 step=1 value=20>
             </label>
             <label id="speed-label">Algorithm speed:
-                <input id="speed" type="range" min=1 max=5 step=1 value=4>
+                <input id="speed" type="range" min=1 max=1000 step=5 value=150>
             </label>
             <button id="generate-array">Generate New Array</button>
         </div>
@@ -35,7 +35,10 @@
     <section>
         <div id="pseudocode-container"></div>
         <div id="array-container"></div>
-        <div id="algorithm-meta-container"></div>
+        <div id="algorithm-meta-container">
+            <span id="time-complexity"></span>
+            <span id="space-complexity"></span>
+        </div>
     </section>
 
     <!-- Contact details -->

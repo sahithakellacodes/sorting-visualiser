@@ -1,4 +1,4 @@
-let defaultSpeed = 1000;
+let defaultSpeed = 100;
 let speed = defaultSpeed;
 
 let delay = 10000 / (Math.floor(input_arrayOfSizes.value / 10) * speed); // Delay for sorting algorithm
@@ -9,30 +9,14 @@ input_speed.addEventListener('input', setAnimationSpeed);
 
 // Function to set animation speed
 function setAnimationSpeed() {
-    let animationSpeed = parseInt(input_speed.value);
-    if (animationSpeed == 1) {
-        speed = 1;
-    }
-    else if (animationSpeed == 2) {
-        speed = 10;
-    }
-    else if (animationSpeed == 3) {
-        speed = 100;
-    }
-    else if (animationSpeed == 4) {
-        speed = 1000;
-    }
-    else {
-        speed = 10000;
-    }
-
+    let speed = parseInt(input_speed.value);
     delay = 10000 / (Math.floor(input_arrayOfSizes.value / 10) * speed);
 }
 
 // Function to update style of div elements
 function updateDiv(array_container, height, color) {
     window.setTimeout(function () {
-        array_container.style = " margin:0% " + margin_size + "%; width:" + (100 / input_arrayOfSizes.value - (2 * margin_size)) + "%; height:" + height + "%; background-color:" + color + ";";
+        array_container.style = " margin:0% " + margin_size + "%; width:" + (100 / input_arrayOfSizes.value - (2 * margin_size)) + "%; height:" + height + "%; background-color:" + color + "; border-radius: 2px;";
     }, color_delay += delay);
 }
 
